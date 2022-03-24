@@ -41,6 +41,11 @@ jobs:
       - name: Build ⚒
         run: yarn build
 
+      - name: Setup GIT
+        run: |
+          git config user.email "$GITHUB_ACTOR@nodis.com.br"
+          git config user.name "$GITHUB_ACTOR"
+
       - name: Versioning
         run: yarn bump
 
