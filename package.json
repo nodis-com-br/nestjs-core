@@ -6,6 +6,10 @@
   "repository": "git@github.com:nodis-com-br/nestjs-core.git",
   "author": "Victor Teles <victor.teles@nodis.com.br>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc"
   },
