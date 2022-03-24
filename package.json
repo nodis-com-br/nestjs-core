@@ -1,5 +1,5 @@
 {
-  "name": "@nodis/nestjs-core",
+  "name": "@nodis-com-br/nestjs-core",
   "version": "1.0.0",
   "description": "Projeto contendo classes core para nestjs/typescript",
   "main": "dist/index.js",
