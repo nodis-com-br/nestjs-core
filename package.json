@@ -1,6 +1,6 @@
 {
   "name": "@nodis-com-br/nestjs-core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Projeto contendo classes core para nestjs/typescript",
   "main": "dist/index.js",
   "repository": "git@github.com:nodis-com-br/nestjs-core.git",
