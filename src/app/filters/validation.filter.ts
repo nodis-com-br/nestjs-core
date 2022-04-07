@@ -9,11 +9,18 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const status = exception.getStatus()
     const message = exception.getResponse() as any
 
+    let mesagemFomatada = message.message
+    if (mesagemFomatada === undefined) {
+      mesagemFomatada = message
+    } else {
+      mesagemFomatada = mesagemFomatada[0]
+    }
+
     response.status(status).json([
       {
         id: 'Erro',
         status: status,
-        mensagem: message.message[0],
+        mensagem: mesagemFomatada,
       },
     ])
   }
