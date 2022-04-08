@@ -44,11 +44,16 @@ jobs:
       - name: Setup GIT
         run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
 
-      - name: Versioning
+      - name: Versioning pre release
+        if: github.ref == 'refs/heads/main'
+        run: yarn bump --prerelease rc
+
+      - name: Versioning release
+        if: github.event_name == 'release'
         run: yarn bump
 
       - name: Push changes
-        if: github.ref == 'refs/heads/main' || github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git push --follow-tags origin main
 
       - name: "Publish Artefacts"
