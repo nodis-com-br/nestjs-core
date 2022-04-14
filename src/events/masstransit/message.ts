@@ -1,6 +1,6 @@
 import { MessageTransit } from './host'
 
-export interface IMasstransitMessage {
+export interface IMassTransitMessage {
   messageId?: string
   requestId?: string
   correlationId?: string
@@ -17,7 +17,7 @@ export interface IMasstransitMessage {
   host?: MessageTransit
 }
 
-export class MasstransitMessage<M> implements IMasstransitMessage {
+export class MassTransitMessage<M> implements IMassTransitMessage {
   messageId?: string
   requestId?: string
   correlationId?: string
