@@ -45,6 +45,6 @@ export abstract class Repositorio<AggregateRootType extends AggregateRoot> {
 
   abstract buscarPorId(id: ObjectId): Promise<AggregateRootType>
   abstract excluirPorId(id: ObjectId): Promise<boolean>
-  abstract adicionar(aggregateRoot: AggregateRootType): Promise<boolean>
-  abstract atualizar(aggregateRoot: AggregateRootType): Promise<boolean>
+  abstract adicionar(aggregateRoot: AggregateRootType): Promise<AggregateRootType>
+  abstract atualizar(aggregateRoot: AggregateRootType): Promise<AggregateRootType>
 }
