@@ -48,10 +48,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: yarn bump --prerelease rc
 
-      - name: Versioning release
-        if: github.event_name == 'release'
-        run: yarn bump
-
       - name: Push changes
         if: github.ref == 'refs/heads/main'
         run: git push --follow-tags origin main
@@ -87,6 +83,9 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@nodis-com-br'
+
+      - name: Versioning release
+        run: yarn bump
 
       - run: yarn publish
         env:
