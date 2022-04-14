@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "vivaxy.vscode-conventional-commits",
+    "EditorConfig.EditorConfig",
+    "eamodio.gitlens",
+    "dbaeumer.vscode-eslint",
+    "silvenon.mdx",
+    "esbenp.prettier-vscode",
+    "meganrogge.template-string-converter",
+    "Prisma.prisma"
+  ]
+}
