@@ -1,14 +1,18 @@
 import { Entity } from './entity'
-import { ObjectId } from './object-id'
 import { Event } from './event'
+import { ObjectId } from './object-id'
 
 export abstract class AggregateRoot<TId = ObjectId> extends Entity<TId> {
+  criadoEm: Date
+  atualizadoEm: Date
   deletadoEm: Date
 
   private newEvents: Event[]
 
   constructor(id: TId) {
     super(id)
+    this.criadoEm = new Date()
+    this.atualizadoEm = null
     this.deletadoEm = null
     this.newEvents = []
   }
@@ -28,6 +32,11 @@ export abstract class AggregateRoot<TId = ObjectId> extends Entity<TId> {
   protected delete<EventType extends Event>(deletionEvent: EventType): void {
     this.addEvent(deletionEvent)
     this.deletadoEm = new Date()
+  }
+
+  protected update<EventType extends Event>(updateEvent: EventType | null): void {
+    if (updateEvent !== null) this.addEvent(updateEvent)
+    this.atualizadoEm = new Date()
   }
 
   private addEvent(event: Event): void {
