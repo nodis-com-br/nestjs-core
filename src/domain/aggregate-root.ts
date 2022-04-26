@@ -4,8 +4,8 @@ import { ObjectId } from './object-id'
 
 export abstract class AggregateRoot<TId = ObjectId> extends Entity<TId> {
   criadoEm: Date
-  atualizadoEm: Date
-  deletadoEm: Date
+  atualizadoEm: Date | null
+  deletadoEm: Date | null
 
   private newEvents: Event[]
 
@@ -29,12 +29,12 @@ export abstract class AggregateRoot<TId = ObjectId> extends Entity<TId> {
     return this.newEvents
   }
 
-  protected delete<EventType extends Event>(deletionEvent: EventType): void {
+  public delete<EventType extends Event>(deletionEvent: EventType): void {
     this.addEvent(deletionEvent)
     this.deletadoEm = new Date()
   }
 
-  protected update<EventType extends Event>(updateEvent: EventType | null): void {
+  public update<EventType extends Event>(updateEvent: EventType | null): void {
     if (updateEvent !== null) this.addEvent(updateEvent)
     this.atualizadoEm = new Date()
   }
