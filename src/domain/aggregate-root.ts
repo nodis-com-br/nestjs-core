@@ -4,8 +4,8 @@ import { ObjectId } from './object-id'
 
 export abstract class AggregateRoot<TId = ObjectId> extends Entity<TId> {
   criadoEm: Date
-  atualizadoEm: Date
-  deletadoEm: Date
+  atualizadoEm: Date | null
+  deletadoEm: Date | null
 
   private newEvents: Event[]
 
