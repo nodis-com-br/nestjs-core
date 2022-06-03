@@ -37,7 +37,7 @@ export abstract class Repositorio<AggregateRootType extends AggregateRoot> {
   ): AggregateRootType | null {
     if (!model) return null
 
-    return Object.assign(new this.Type(model.id), model, aggregateRoot, {})
+    return Object.assign(new this.Type(model.id), aggregateRoot, model, {})
   }
 
   protected toModel(aggregateRoot: AggregateRootType): any {
