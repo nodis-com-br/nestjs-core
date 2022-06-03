@@ -31,10 +31,13 @@ export abstract class Repositorio<AggregateRootType extends AggregateRoot> {
     root.clearChanges()
   }
 
-  protected toAggregateRoot(model: any): AggregateRootType | null {
+  protected toAggregateRoot(
+    model: any,
+    aggregateRoot: AggregateRootType = null,
+  ): AggregateRootType | null {
     if (!model) return null
 
-    return Object.assign(new this.Type(model.id), model, {})
+    return Object.assign(new this.Type(model.id), model, aggregateRoot, {})
   }
 
   protected toModel(aggregateRoot: AggregateRootType): any {
