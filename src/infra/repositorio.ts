@@ -23,7 +23,7 @@ export abstract class Repositorio<AggregateRootType extends AggregateRoot> {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error newEvents
       const { newEvents, ...clonedEvent } = event
-      const enrichEvent = Object.assign(clonedEvent, event, { newEvents: undefined })
+      const enrichEvent = Object.assign(clonedEvent, root, { newEvents: undefined })
       return await this.eventEmitter.emitAsync(event.name, enrichEvent)
     })
 
